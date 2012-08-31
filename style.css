@@ -1,0 +1,27 @@
+body {
+  font-size: 120%;
+  font-family: 'Arial';
+  background-color: black;
+  color: white;
+}
+h1 {
+  color: limegreen;
+}
+table {
+  font-size: 150%;
+}
+td.main {
+  color: red;
+  font-weight: bold;
+}
+td.supplementary {
+  color: yellow;
+  font-weight: bold;
+}
+td {
+  width: 2em;
+}
+td.division {
+  color: hotpink;
+  width: 10em;
+}

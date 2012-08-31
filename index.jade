@@ -1,0 +1,16 @@
+!!! 5
+html(lang="en")
+  head
+    title='Plan B!'
+    link(rel='stylesheet', href='/style.css')
+  body
+    h1 $$$ OPERATOR PLAN B $$$
+    table
+      each game in games
+        tr
+          each number in game.numbers
+            - var numberClass = (number.mainNumber ? 'main' : (number.supplementaryNumber ? 'supplementary' : ''))
+            td(class=numberClass)=number.value
+          td.division
+            if game.division
+              span Division #{game.division}!!!
