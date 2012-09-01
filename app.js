@@ -14,13 +14,13 @@ http.createServer(function(req, res) {
       });
   } else {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    tatts.latest(function(err, mainNumbers, supplementaryNumbers) {
+    tatts.latest(function(err, mainNumbers, supplementaryNumbers, date) {
       if(!err) {
         var results = tatts.checkTicket(ourNumbers, mainNumbers, supplementaryNumbers);
-        res.end(index({games: results})+'\n');
+        res.end(index({date: date, games: results})+'\n');
       } else {
         console.log('Err: ', err);
       }
     });
   }
-}).listen(9010, '127.0.0.1');
+}).listen(443);

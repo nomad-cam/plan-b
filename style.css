@@ -4,11 +4,8 @@ body {
   background-color: black;
   color: white;
 }
-h1 {
+h1, h3 {
   color: limegreen;
-}
-table {
-  font-size: 150%;
 }
 td.main {
   color: red;
