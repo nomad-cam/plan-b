@@ -10,7 +10,7 @@ html(lang="en")
     table
       tr
       tr
-      each game in games
+      each game in games        
         tr
           each number in game.numbers
             - var numberClass = (number.mainNumber ? 'main' : (number.supplementaryNumber ? 'supplementary' : ''))
@@ -18,3 +18,7 @@ html(lang="en")
           td.division
             if game.division
               span Division #{game.division}!!!
+          td.reward
+            if game.division
+              span 
+                a(href='https://thelott.com/tattersalls/results/latest-results?product=Tattslotto') $#{game.reward}
