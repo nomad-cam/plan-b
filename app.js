@@ -15,8 +15,8 @@ http.createServer(function(req, res) {
   } else {
     res.writeHead(200, {'Content-Type': 'text/html'});
     tatts.latest(function(err, mainNumbers, supplementaryNumbers, date, coin) {
-      if(!err) {        
-        var results = tatts.checkTicket(ourNumbers, mainNumbers, supplementaryNumbers, coin);        
+      if(!err) {
+        var results = tatts.checkTicket(ourNumbers, mainNumbers, supplementaryNumbers, coin);
         res.end(index({date: date, games: results })+'\n');
       } else {
         console.log('Err: ', err);
