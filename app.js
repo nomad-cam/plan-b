@@ -2,25 +2,25 @@ var tatts = require('./lib/tatts')
   , ourNumbers = require('./numbers')
   , http = require('http')
   , jade = require('jade')
-  , fs = require('fs');
+  , fs = require('fs')
 
-var index = jade.compile(fs.readFileSync('index.jade', 'utf8'));
+var index = jade.compile(fs.readFileSync('index.jade', 'utf8'))
 
 http.createServer(function(req, res) {
   if(req.url === '/style.css') {
-      res.writeHead(200, {'Content-Type': 'text/css'});
+      res.writeHead(200, {'Content-Type': 'text/css'})
       fs.readFile('style.css', 'utf8', function(err, data) {
-        res.end(data+'\n');
-      });
+        res.end(data+'\n')
+      })
   } else {
-    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.writeHead(200, {'Content-Type': 'text/html'})
     tatts.latest(function(err, mainNumbers, supplementaryNumbers, draw, date, coin) {
       if(!err) {
-        var results = tatts.checkTicket(ourNumbers, mainNumbers, supplementaryNumbers, coin);
-        res.end(index({draw: draw, date: date, games: results })+'\n');
+        var results = tatts.checkTicket(ourNumbers, mainNumbers, supplementaryNumbers, coin)
+        res.end(index({draw: draw, date: date, games: results })+'\n')
       } else {
-        console.log('Err: ', err);
+        console.log('Err: ', err)
       }
-    });
+    })
   }
-}).listen(5000);
+}).listen(5000)
